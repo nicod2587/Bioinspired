@@ -1,0 +1,13 @@
+# capyle rewrites these every run
+*.pkl
+
+# python
+__pycache__/
+*.pyc
+
+# editors / os
+*.swp
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
