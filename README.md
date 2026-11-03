@@ -1,6 +1,6 @@
 # COM3524 forest fire CA
 
-Group project code. Built on CAPyLE, the CA tool from the week 5 lab (original readme in `CAPYLE_README.md`).
+Group project code. Built on CAPyLE, the CA tool from the week 5 lab.
 
 ## Setup
 
