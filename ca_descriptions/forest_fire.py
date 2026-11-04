@@ -38,7 +38,11 @@ LAKE = 3
 GRID_DIMS = (100, 100)
 
 # Freire & DaCamara constants
-P0 = 0.58
+# OUR CHOICE: their p0 is 0.58, tuned for 100m cells and 20 minute steps. Ours
+# are 500m cells, so at 0.58 spread saturates (probability ~1 in the wind
+# direction) and the fire front goes square. 0.2 keeps the front ragged and
+# lets wind stretch it. Needs justifying/tuning, see notes.
+P0 = 0.2
 C1 = 0.045
 C2 = 0.131
 
