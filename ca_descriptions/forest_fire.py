@@ -36,16 +36,17 @@ LAKE = 3
 
 # OUR CHOICE: Freire & DaCamara use 100m cells and 20 minute steps, but at that
 # scale the brief's burn times (days) last hundreds of steps and the whole fire
-# is one solid burning block. 0.5km cells (100x100 is the full 50km x 50km map,
-# town is 5x5 cells) with longer steps keeps burn times to a sensible number
-# of steps. Each step is 2 hours.
-GRID_DIMS = (100, 100)
+# is one solid burning block. 0.25km cells (200x200 is the full 50km x 50km map,
+# town is 10x10 cells, 12.5km2 of water is 200 cells) with 2 hour steps keeps
+# burn times to a sensible number of steps. Finer cells mean the fire takes
+# more steps to cross the map and the burning front is thinner.
+GRID_DIMS = (200, 200)
 MINUTES_PER_STEP = 120
 
 # Freire & DaCamara base burning probability is 0.58. OUR CHOICE: lowered,
-# at 0.5km cells 0.58 makes spread near-certain in every direction and the
+# at this cell size 0.58 makes spread near-certain in every direction and the
 # fire front goes square.
-P0 = 0.2
+P0 = 0.15
 
 # p_veg and p_den per terrain, values from Freire & DaCamara Table 1:
 #   chaparral -> shrubland (0.4), normal density (0)
@@ -99,7 +100,7 @@ def setup(args):
 
     # green = unburnt, orange = burning, dark grey = burnt, blue = lake
     config.state_colors = [(0.2, 0.6, 0.2), (1, 0.5, 0), (0.15, 0.15, 0.15), (0.2, 0.4, 0.9)]
-    config.num_generations = 300
+    config.num_generations = 500
     config.grid_dims = GRID_DIMS
     # no wrapping, otherwise fire leaving one edge comes back on the other
     config.wrap = False
