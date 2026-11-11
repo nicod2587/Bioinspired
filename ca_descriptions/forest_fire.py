@@ -12,79 +12,36 @@ sys.path.append(main_dir_loc + 'capyle/ca')
 sys.path.append(main_dir_loc + 'capyle/guicomponents')
 # ---
 
-from capyle.ca import Grid2D, Neighbourhood, CAConfig, randomise2d
+from capyle.ca import Grid2D
 import capyle.utils as utils
-import numpy as np
 
-# Spread rules follow Freire & DaCamara (2019), "Using cellular automata to
-# simulate wildfire propagation and to assist in fire management", NHESS 19.
-# Their burning probability is
-#   p_burn = p0 * (1 + p_veg) * (1 + p_den) * p_w * p_s
-# Wind (p_w) and slope (p_s) are left out for now.
-
-# states (Freire & DaCamara's four cell states)
-UNBURNT = 0
-BURNING = 1
-BURNT = 2
-NON_BURNABLE = 3
-
-# terrain types
-CHAPARRAL = 0
-FOREST = 1
-CANYON = 2
-LAKE = 3
-
-# OUR CHOICE: Freire & DaCamara use 100m cells and 20 minute steps, but at that
-# scale the brief's burn times (days) last hundreds of steps and the whole fire
-# is one solid burning block. 0.25km cells (200x200 is the full 50km x 50km map,
-# town is 10x10 cells, 12.5km2 of water is 200 cells) with 2 hour steps keeps
-# burn times to a sensible number of steps. Finer cells mean the fire takes
-# more steps to cross the map and the burning front is thinner.
-GRID_DIMS = (200, 200)
-MINUTES_PER_STEP = 120
-
-# Freire & DaCamara base burning probability is 0.58. OUR CHOICE: lowered,
-# at this cell size 0.58 makes spread near-certain in every direction and the
-# fire front goes square.
-P0 = 0.15
-
-# p_veg and p_den per terrain, values from Freire & DaCamara Table 1:
-#   chaparral -> shrubland (0.4), normal density (0)
-#   canyon    -> shrubland (0.4), dense (0.3), the brief says it ignites very easily
-#   lake      -> no vegetation (-1, -1), so it can never burn
-#   forest    -> OUR CHOICE: their table rates forest at 0.4, but the brief says
-#                dense forest doesn't ignite easily, so we use their -0.4 value
-#                with dense (0.3)
-P_VEG = np.array([0.4, -0.4, 0.4, -1])
-P_DEN = np.array([0, 0.3, 0.3, -1])
-
-# OUR ADDITION: steps a cell burns for. Freire & DaCamara burn every cell for
-# one step, but the brief gives a burn time for each terrain. Our reading of it:
-#   canyon "several hours" = 6 hours, chaparral "several days" = 3 days,
-#   forest "up to one month" = 30 days
-BURN_TIME = np.array([3 * 24 * 60, 30 * 24 * 60, 6 * 60, 0]) // MINUTES_PER_STEP
+# the model is in firemodel/, this file just uses it
+from firemodel import terrain_map, states, burn, heat, spread, wind
 
 
-def transition_func(grid, neighbourstates, neighbourcounts, p_burn, fuel):
-    # unpack state counts for state 0, 1, 2 and 3
-    unburnt_neighbours, burning_neighbours, burnt_neighbours, non_burnable_neighbours = neighbourcounts
-    # rule 4: each burning neighbour gets its own chance p_burn to light the cell
-    ignite_prob = 1 - (1 - p_burn) ** burning_neighbours
-    catches_fire = (grid == UNBURNT) & (np.random.random(grid.shape) < ignite_prob)
-    # rule 2 (with fuel): burning cells use up a step of fuel and are
-    # completely burnt when it runs out
-    burning = grid == BURNING
-    fuel[burning] -= 1
-    burns_out = burning & (fuel <= 0)
-    # rules 1 and 3: non-burnable and burnt cells never change
-    grid[catches_fire] = BURNING
-    grid[burns_out] = BURNT
+GRID_DIMS = terrain_map.GRID_DIMS
+
+# fire start, POWER_PLANT or INCINERATOR
+IGNITION = terrain_map.POWER_PLANT
+
+# steps are 20 mins so 1200 = 400 hours. this overrides the generations box
+NUM_GENERATIONS = 1200
+
+
+def transition_func(grid, neighbourstates, neighbourcounts, cells):
+    # cells that catch fire
+    catches_fire = spread.catches_fire(grid, neighbourstates,
+                                       cells['p_burn'], cells['wind'])
+    # burning cells use fuel and change stage
+    burning = states.is_burning(grid)
+    cells['fuel'][burning] -= 1
+    heat.update(grid, burning, cells['fuel'], cells['fuel_start'])
+    # no fuel left -> burnt
+    burns_out = burning & (cells['fuel'] <= 0)
+    grid[burns_out] = cells['burnt_as'][burns_out]
+    # new fires start as catching
+    grid[catches_fire] = states.CATCHING
     return grid
-
-
-def make_terrain():
-    """Terrain type of every cell, one type of land for now"""
-    return np.full(GRID_DIMS, CHAPARRAL)
 
 
 def setup(args):
@@ -93,22 +50,18 @@ def setup(args):
     # ---THE CA MUST BE RELOADED IN THE GUI IF ANY OF THE BELOW ARE CHANGED---
     config.title = "Forest fire"
     config.dimensions = 2
-    config.states = (UNBURNT, BURNING, BURNT, NON_BURNABLE)
+    config.states = tuple(range(states.NUM_STATES))
     # ------------------------------------------------------------------------
 
     # ---- Override the defaults below (these may be changed at anytime) ----
 
-    # green = unburnt, orange = burning, dark grey = burnt, blue = lake
-    config.state_colors = [(0.2, 0.6, 0.2), (1, 0.5, 0), (0.15, 0.15, 0.15), (0.2, 0.4, 0.9)]
-    config.num_generations = 500
+    config.state_colors = states.COLOURS
+    config.num_generations = NUM_GENERATIONS
     config.grid_dims = GRID_DIMS
-    # no wrapping, otherwise fire leaving one edge comes back on the other
+    # no wrapping or fire would go off one edge and come back on the other
     config.wrap = False
-    # lakes are non-burnable, fire starts in the top left corner (power plant)
-    terrain = make_terrain()
-    initial_grid = np.full(GRID_DIMS, UNBURNT)
-    initial_grid[terrain == LAKE] = NON_BURNABLE
-    initial_grid[0, 0] = BURNING
+    initial_grid = terrain_map.draw_states(terrain_map.make_map())
+    initial_grid[IGNITION] = states.FLAMING
     config.initial_grid = initial_grid
 
     # ----------------------------------------------------------------------
@@ -124,13 +77,12 @@ def main():
     # Open the config object
     config = setup(sys.argv[1:])
 
-    terrain = make_terrain()
-    # burning probability and fuel of every cell, fixed by the terrain
-    p_burn = np.clip(P0 * (1 + P_VEG[terrain]) * (1 + P_DEN[terrain]), 0, 1)
-    fuel = BURN_TIME[terrain].copy()
+    # p_burn, fuel etc for each cell, plus the wind
+    cells = burn.make_cells()
+    cells['wind'] = wind.spread_factors()
 
-    # Create grid object, passing p_burn and fuel through to the transition function
-    grid = Grid2D(config, (transition_func, p_burn, fuel))
+    # Create grid object
+    grid = Grid2D(config, (transition_func, cells))
 
     # Run the CA, save grid state every generation to timeline
     timeline = grid.run()
