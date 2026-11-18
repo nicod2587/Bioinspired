@@ -11,7 +11,7 @@ LAKE = 3
 
 # 200m cells -> 250x250. tried 50m and 100m but capyle was too slow
 MAP_KM = 50
-CELL_KM = 0.2
+CELL_KM = 0.5
 GRID_SIZE = int(round(MAP_KM / CELL_KM))
 GRID_DIMS = (GRID_SIZE, GRID_SIZE)
 
