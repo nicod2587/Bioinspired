@@ -72,12 +72,11 @@ def main():
 
     cells = burn.make_cells()
     cells['directions'] = [
-        0, 45, 90, 135, 180, 225, 270, 315
+        315, 0, 45, 90, 135, 180, 225, 270
     ]
 
     # Create grid object
     grid = Grid2D(config, (transition_func, cells))
-
     # Run the CA, save grid state every generation to timeline
     timeline = grid.run()
 

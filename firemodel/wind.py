@@ -3,20 +3,12 @@
 import numpy as np
 import math
 
-WIND_SPEED = 8.0      # m/s
-WIND_FROM_DEG = 0     # direction it blows from, 0 = N, 90 = E
+WIND_SPEED = 30.0      # m/s
+WIND_FROM_DEG = -90     # direction it blows from, 0 = N, 90 = E
 
+# taken from paper
 CONSTANT_1=0.05
 CONSTANT_2=0.13
-
-# (row, col), NW N NE W E SW S SE
-NEIGHBOUR_OFFSETS = [(-1, -1), (-1, 0), (-1, 1),
-                     (0, -1),           (0, 1),
-                     (1, -1),  (1, 0),  (1, 1)]
-
-
-def spread_factors(speed=WIND_SPEED, from_deg=WIND_FROM_DEG):
-    return np.ones(len(NEIGHBOUR_OFFSETS))
 
 
 def spread_chance(propagation_direction):
