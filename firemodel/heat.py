@@ -1,4 +1,4 @@
-"""Burn stages. TODO heat - every burning stage is heat 1 for now"""
+"""Burn stages and their heat. Mostly the flaming stage spreads the fire"""
 
 import numpy as np
 
@@ -11,8 +11,12 @@ CATCH_STEPS = 60 // MINUTES_PER_STEP
 FLAME_STEPS = 4 * 60 // MINUTES_PER_STEP
 EMBERS_AT = 0.5
 
+# heat multiplies p_burn. our own guesses for now
 HEAT_OF_STATE = np.zeros(states.NUM_STATES)
-HEAT_OF_STATE[states.BURNING_STATES] = 1
+HEAT_OF_STATE[states.CATCHING] = 0.3
+HEAT_OF_STATE[states.FLAMING] = 1
+HEAT_OF_STATE[states.SMOULDERING] = 0.1
+HEAT_OF_STATE[states.EMBERS] = 0.05
 
 
 def heat_of(state_grid):

@@ -22,8 +22,8 @@ GRID_DIMS = terrain_map.GRID_DIMS
 
 IGNITION = terrain_map.POWER_PLANT   # or INCINERATOR
 
-# 20 min steps, so 400 hours. overrides the box in the gui
-NUM_GENERATIONS = 1200
+# 20 min steps, so 600 hours. default for the gui box
+NUM_GENERATIONS = 1800
 
 
 def transition_func(grid, neighbourstates, neighbourcounts, cells):
@@ -50,7 +50,6 @@ def setup(args):
     # ---- Override the defaults below (these may be changed at anytime) ----
 
     config.state_colors = states.COLOURS
-    config.num_generations = NUM_GENERATIONS
     config.grid_dims = GRID_DIMS
     config.wrap = False
     initial_grid = terrain_map.draw_states(terrain_map.make_map())
@@ -59,7 +58,9 @@ def setup(args):
 
     # ----------------------------------------------------------------------
 
+    # only set on load so the gui box isn't overwritten on run
     if len(args) == 2:
+        config.num_generations = NUM_GENERATIONS
         config.save()
         sys.exit()
 
@@ -71,8 +72,9 @@ def main():
     config = setup(sys.argv[1:])
 
     cells = burn.make_cells()
+    # bearing of each neighbour, capyle order is NW N NE W E SW S SE
     cells['directions'] = [
-        315, 0, 45, 90, 135, 180, 225, 270
+        315, 0, 45, 270, 90, 225, 180, 135
     ]
 
     # Create grid object

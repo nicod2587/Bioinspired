@@ -25,7 +25,7 @@ Model is split up in `firemodel/` so we can each work on a different file:
 
 - `terrain_map.py` - the map and cell size
 - `burn.py` - p_burn (Freire & DaCamara) and burn times
-- `heat.py` - burn stages (heat is all 1 for now)
+- `heat.py` - burn stages (heat per stage)
 - `spread.py` - fire spread, p_burn x heat x wind per neighbour
 - `wind.py` - wind (no wind until the wind branch is merged)
 - `states.py` - states and colours

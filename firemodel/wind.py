@@ -3,7 +3,7 @@
 import numpy as np
 import math
 
-WIND_SPEED = 30.0      # m/s
+WIND_SPEED = 20.0      # m/s
 WIND_FROM_DEG = -90     # direction it blows from, 0 = N, 90 = E
 
 # taken from paper

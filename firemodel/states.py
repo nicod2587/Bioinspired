@@ -13,15 +13,15 @@ EMBERS = CATCHING + 3
 BURNING_STATES = [CATCHING, FLAMING, SMOULDERING, EMBERS]
 BURNING_COLOURS = [(0.85, 0.20, 0.05),     # catching, red
                    (1.00, 0.85, 0.25),     # flaming, yellow
-                   (0.95, 0.45, 0.05),     # smouldering, orange
-                   (0.50, 0.08, 0.03)]     # embers, dark red
+                   (0.50, 0.10, 0.05),     # smouldering, dark red
+                   (0.30, 0.10, 0.10)]     # embers, very dark red
 
 # burnt greys, slightly tinted by terrain
 CHAPARRAL_BURNT = EMBERS + 1
 FOREST_BURNT = EMBERS + 2
 CANYON_BURNT = EMBERS + 3
-BURNT_COLOURS = [(0.30, 0.29, 0.24),       # chaparral
-                 (0.26, 0.29, 0.24),       # forest
+BURNT_COLOURS = [(0.20, 0.20, 0.15),       # chaparral
+                 (0.15, 0.20, 0.15),       # forest
                  (0.52, 0.49, 0.40)]       # canyon
 # lake never burns so its entry doesn't matter
 BURNT_STATE_OF_TERRAIN = np.array([CHAPARRAL_BURNT, FOREST_BURNT,

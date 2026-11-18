@@ -13,8 +13,11 @@ P0 = 0.12
 P_VEG = np.array([1, 0.2, 100, 0])
 P_DEN = np.array([0, 0.3, 0.3, -1])
 
-# burn time in steps: chaparral 3 days, forest 30 days, canyon 6 hours
-BURN_TIME = np.array([3 * 24 * 60, 30 * 24 * 60, 6 * 60, 0]) // MINUTES_PER_STEP
+HOUR = 60 // MINUTES_PER_STEP
+DAY = 24 * HOUR
+
+# burn time in steps: chaparral 3 days, forest 10 days, canyon 10 hours
+BURN_TIME = np.array([3 * DAY, 10 * DAY, 10 * HOUR, 0])
 
 
 def make_cells():
