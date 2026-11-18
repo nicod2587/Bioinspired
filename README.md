@@ -15,33 +15,24 @@ conda activate COM3524
 python main.py
 ```
 
-or `run.bat` (Windows) / `run.sh` (Mac/Linux). On Windows without conda, `py main.py` works if `python` opens the Microsoft Store. In the GUI go to File > Open, pick `forest_fire.py` from `ca_descriptions/` and click "Apply configuration & run CA".
+or `run.bat` / `run.sh`. On Windows use `py main.py` if `python` just opens the Microsoft Store. Then File > Open, pick `ca_descriptions/forest_fire.py` and click "Apply configuration & run CA".
 
-To see the map on its own: `python firemodel/terrain_map.py` saves `screenshots/terrain_map.png`.
+`python firemodel/terrain_map.py` saves a picture of the map to `screenshots/`.
 
-## Code layout
+## Code
 
-The model is in `firemodel/`, one file per part, so we can each work on our own file:
+Model is split up in `firemodel/` so we can each work on a different file:
 
-| File | What's in it |
-|---|---|
-| `firemodel/terrain_map.py` | The map from the brief and its colours. Cell size (`CELL_KM`) is here. |
-| `firemodel/burn.py` | Burn formula (`p_burn`, Freire & DaCamara) and burn times. |
-| `firemodel/heat.py` | Burn stages and heat. Placeholder: every burning stage counts as heat 1 for now. |
-| `firemodel/spread.py` | How fire passes to a cell: `p_burn x heat x wind` for each of the 8 neighbours. |
-| `firemodel/wind.py` | Wind factor for each direction. Placeholder (no wind) until the `wind` branch is merged. |
-| `firemodel/states.py` | State numbers and colours. New states go here. |
-| `firemodel/settings.py` | Time step. |
-| `ca_descriptions/forest_fire.py` | The CAPyLE file. Puts the parts together; set the ignition point and number of steps here. |
+- `terrain_map.py` - the map and cell size
+- `burn.py` - p_burn (Freire & DaCamara) and burn times
+- `heat.py` - burn stages (heat is all 1 for now)
+- `spread.py` - fire spread, p_burn x heat x wind per neighbour
+- `wind.py` - wind (no wind until the wind branch is merged)
+- `states.py` - states and colours
+- `settings.py` - time step
 
-Each step (`transition_func` in `forest_fire.py`):
+`ca_descriptions/forest_fire.py` is the capyle file that uses them. Ignition point and number of steps are set there.
 
-1. `spread.catches_fire` works out which unburnt cells catch fire
-2. burning cells use a step of fuel and `heat.update` moves them to the right burn stage
-3. cells with no fuel left become burnt
-4. newly lit cells start as `CATCHING`
+## Settings
 
-## Current settings
-
-- 200 m cells (250 x 250), 20 minutes per step, 1200 steps (400 hours). A run takes about 40 s and 600 MB.
-- No wind. A fire from the power plant reaches the town after about 400 steps (130 hours).
+200m cells (250x250), 20 min steps, 1200 steps = 400 hours. A run takes about 40s and 600MB. With no wind the fire from the power plant gets to the town after about 400 steps (130 hours).

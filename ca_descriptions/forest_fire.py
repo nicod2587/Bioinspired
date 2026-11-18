@@ -15,31 +15,25 @@ sys.path.append(main_dir_loc + 'capyle/guicomponents')
 from capyle.ca import Grid2D
 import capyle.utils as utils
 
-# the model is in firemodel/, this file just uses it
 from firemodel import terrain_map, states, burn, heat, spread, wind
 
 
 GRID_DIMS = terrain_map.GRID_DIMS
 
-# fire start, POWER_PLANT or INCINERATOR
-IGNITION = terrain_map.POWER_PLANT
+IGNITION = terrain_map.POWER_PLANT   # or INCINERATOR
 
-# steps are 20 mins so 1200 = 400 hours. this overrides the generations box
+# 20 min steps, so 400 hours. overrides the box in the gui
 NUM_GENERATIONS = 1200
 
 
 def transition_func(grid, neighbourstates, neighbourcounts, cells):
-    # cells that catch fire
     catches_fire = spread.catches_fire(grid, neighbourstates,
                                        cells['p_burn'], cells['wind'])
-    # burning cells use fuel and change stage
     burning = states.is_burning(grid)
     cells['fuel'][burning] -= 1
     heat.update(grid, burning, cells['fuel'], cells['fuel_start'])
-    # no fuel left -> burnt
     burns_out = burning & (cells['fuel'] <= 0)
     grid[burns_out] = cells['burnt_as'][burns_out]
-    # new fires start as catching
     grid[catches_fire] = states.CATCHING
     return grid
 
@@ -58,7 +52,6 @@ def setup(args):
     config.state_colors = states.COLOURS
     config.num_generations = NUM_GENERATIONS
     config.grid_dims = GRID_DIMS
-    # no wrapping or fire would go off one edge and come back on the other
     config.wrap = False
     initial_grid = terrain_map.draw_states(terrain_map.make_map())
     initial_grid[IGNITION] = states.FLAMING
@@ -77,7 +70,6 @@ def main():
     # Open the config object
     config = setup(sys.argv[1:])
 
-    # p_burn, fuel etc for each cell, plus the wind
     cells = burn.make_cells()
     cells['wind'] = wind.spread_factors()
 

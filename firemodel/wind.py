@@ -1,15 +1,12 @@
-"""Wind. Gives a multiplier for each of the 8 neighbour directions.
-
-Not done yet (see the wind branch), so it's 1 in every direction for now.
-"""
+"""Wind multiplier for each neighbour direction. TODO - on the wind branch"""
 
 import numpy as np
 
 
 WIND_SPEED = 0.0      # m/s
-WIND_FROM_DEG = 0     # where the wind comes from: 0 N, 90 E, 180 S, 270 W
+WIND_FROM_DEG = 0     # direction it blows from, 0 = N, 90 = E
 
-# neighbour offsets (row, col) in capyle's order: NW N NE W E SW S SE
+# (row, col), NW N NE W E SW S SE
 NEIGHBOUR_OFFSETS = [(-1, -1), (-1, 0), (-1, 1),
                      (0, -1),           (0, 1),
                      (1, -1),  (1, 0),  (1, 1)]
