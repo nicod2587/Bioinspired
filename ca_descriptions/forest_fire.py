@@ -28,7 +28,7 @@ NUM_GENERATIONS = 1200
 
 def transition_func(grid, neighbourstates, neighbourcounts, cells):
     catches_fire = spread.catches_fire(grid, neighbourstates,
-                                       cells['p_burn'], cells['wind'])
+                                       cells['p_burn'], cells['directions'])
     burning = states.is_burning(grid)
     cells['fuel'][burning] -= 1
     heat.update(grid, burning, cells['fuel'], cells['fuel_start'])
@@ -71,7 +71,9 @@ def main():
     config = setup(sys.argv[1:])
 
     cells = burn.make_cells()
-    cells['wind'] = wind.spread_factors()
+    cells['directions'] = [
+        0, 45, 90, 135, 180, 225, 270, 315
+    ]
 
     # Create grid object
     grid = Grid2D(config, (transition_func, cells))

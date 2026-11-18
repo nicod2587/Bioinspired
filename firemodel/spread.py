@@ -2,15 +2,15 @@
 
 import numpy as np
 
-from . import heat, states
+from . import heat, states, wind
 
 
-def catches_fire(grid, neighbourstates, p_burn, wind_factors):
+def catches_fire(grid, neighbourstates, p_burn, directions_angles):
     chance_not_lit = np.ones(grid.shape)
     # both in capyle's order: NW N NE W E SW S SE
     for direction in range(8):
         neighbour_heat = heat.heat_of(neighbourstates[direction])
-        p = np.clip(p_burn * neighbour_heat * wind_factors[direction], 0, 1)
+        p = np.clip(p_burn * neighbour_heat * wind.spread_chance(directions_angles[direction]), 0, 1)
         chance_not_lit *= 1 - p
     lit = np.random.random(grid.shape) > chance_not_lit
     return states.is_unburnt(grid) & lit
