@@ -3,8 +3,8 @@
 # where the fire starts: 'power plant' or 'incinerator'
 IGNITION = 'power plant'
 
-# default for the generations box in the gui, 2880 = 10 days
-NUM_GENERATIONS = 2880
+# default for the generations box in the gui, 8640 = 1 month
+NUM_GENERATIONS = 8640 
 
 # cell size in km, 0.5 = 100x100. tried 50m and 100m but capyle was too slow
 CELL_KM = 0.5
@@ -13,8 +13,8 @@ CELL_KM = 0.5
 MINUTES_PER_STEP = 5
 
 # wind, 0 speed = no wind
-WIND_SPEED = 10.0      # m/s
-WIND_FROM_DEG = 0      # direction it blows from, 0 = N, 90 = E
+WIND_SPEED = 8.0      # m/s
+WIND_FROM_DEG = 270      # direction it blows from, 0 = N, 90 = E
 
 # patchy vegetation density from a noise map, False = same density everywhere
-DENSITY = False
+DENSITY = True
