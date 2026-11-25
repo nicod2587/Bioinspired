@@ -9,6 +9,7 @@ from griddimsui import _GridDimensionsUI
 from rulenumberui import _RuleNumberUI
 from statecolorsui import _StateColorsUI
 from neighbourhoodui import _NeighbourhoodUI
+from settingsui import _SettingsUI
 from configframe import _ConfigFrame
 from playbackui import _PlaybackUI
 from screenshotui import _ScreenshotUI

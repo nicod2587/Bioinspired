@@ -15,7 +15,11 @@ sys.path.append(main_dir_loc + 'capyle/guicomponents')
 from capyle.ca import Grid2D
 import capyle.utils as utils
 
-from firemodel import terrain_map, states, burn, heat, spread, wind, density, settings
+from firemodel import settings
+# apply the gui's settings panel before the rest of the model reads settings
+if __name__ == '__main__' and len(sys.argv) > 1:
+    settings.override(getattr(utils.load(sys.argv[1]), 'settings', {}))
+from firemodel import terrain_map, states, burn, heat, spread, wind, density
 
 
 GRID_DIMS = terrain_map.GRID_DIMS
@@ -49,6 +53,8 @@ def setup(args):
     # ---- Override the defaults below (these may be changed at anytime) ----
 
     config.state_colors = states.COLOURS
+    config.settings = settings.current()
+    config.setting_choices = settings.CHOICES
     config.grid_dims = GRID_DIMS
     config.wrap = False
     initial_grid = terrain_map.draw_states(terrain_map.make_map())

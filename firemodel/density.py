@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import noise
 
-from .settings import DENSITY
+from .settings import DENSITY, DENSITY_IMG_SAVE
 
 def apply_noise(x, y):
     return noise.pnoise2(x/10, y/10)
@@ -18,6 +18,8 @@ def generate_noise_map(grid_dims):
     return 1 + 0.5 * raw
 
 def show_noise_map(noise_map):
+    if not DENSITY_IMG_SAVE:
+        return
     plt.figure()
     plt.imshow(noise_map, cmap='gray', interpolation='none')
     plt.colorbar()

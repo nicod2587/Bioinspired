@@ -3,7 +3,8 @@ import numpy as np
 from capyle.utils import gens_to_dims, alerterror, alertcontinue
 from capyle.guicomponents import (_GenerationsUI, _GridDimensionsUI,
                                   _Separator, _NeighbourhoodUI, _RuleNumberUI,
-                                  _StateColorsUI, _InitialGridUI)
+                                  _StateColorsUI, _InitialGridUI,
+                                  _SettingsUI)
 
 
 class _ConfigFrame(tk.Frame):
@@ -18,6 +19,13 @@ class _ConfigFrame(tk.Frame):
         btn_reset.pack()
 
         self.separator()
+
+        # description specific settings, only if it sets config.settings
+        self.settings_ui = None
+        if getattr(self.ca_config, 'settings', None):
+            self.settings_ui = _SettingsUI(self, self.ca_config)
+            self.settings_ui.pack(fill=tk.BOTH)
+            self.separator()
 
         if self.ca_config.dimensions == 2:
             self.griddims_entry = _GridDimensionsUI(self)
@@ -67,11 +75,19 @@ class _ConfigFrame(tk.Frame):
             self.rulenum_entry.set_default()
         self.generations_entry.set_default()
         self.nhood_select.set_default()
+        if self.settings_ui is not None:
+            self.settings_ui.set_default()
 
     def get_config(self, ca_config, validate=False):
         """Get the config from the UI and store in a CAConfig object"""
         ca_config.num_generations = self.generations_entry.get_value()
         ca_config.state_colors = self.state_colors.get_value()
+        if self.settings_ui is not None:
+            try:
+                ca_config.settings = self.settings_ui.get_value()
+            except ValueError as e:
+                alerterror("Settings", str(e))
+                return (ca_config, False) if validate else ca_config
 
         if ca_config.dimensions == 2:
             ca_config.grid_dims = self.griddims_entry.get_value()
@@ -150,3 +166,5 @@ class _ConfigFrame(tk.Frame):
         self.generations_entry.set(self.ca_config.num_generations)
         self.init_grid.update_config(self.ca_config)
         self.state_colors.update(self.ca_config, ca_graph)
+        if self.settings_ui is not None:
+            self.settings_ui.set(getattr(ca_config, 'settings', {}))
