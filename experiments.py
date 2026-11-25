@@ -10,7 +10,7 @@ from multiprocessing import Pool
 
 import numpy as np
 
-from firemodel import terrain_map, states, burn, wind, settings
+from firemodel import terrain_map, states, burn, wind, density, settings
 
 # use the same transition function as the gui
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -44,7 +44,7 @@ def hours_to_town(job):
     np.random.seed(seed)
     wind.WIND_FROM_DEG = wind_from
     wind.WIND_SPEED = speed
-    cells = burn.make_cells()
+    cells = burn.make_cells(density.generate_noise_map(terrain_map.GRID_DIMS))
     cells['directions'] = BEARINGS
     grid = terrain_map.draw_states(terrain_map.make_map())
     grid[IGNITIONS[ignition]] = states.FLAMING

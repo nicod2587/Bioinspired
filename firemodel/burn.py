@@ -1,4 +1,4 @@
-"""p_burn = P0 * (1 + p_veg) * (1 + p_den), from Freire & DaCamara (2019)"""
+"""p_burn = P0 * p_veg * density, based on Freire & DaCamara (2019)"""
 
 import numpy as np
 
@@ -8,8 +8,8 @@ from .settings import MINUTES_PER_STEP
 
 P0 = 0.04
 
-# chaparral, forest, canyon, lake. from Freire & DaCamara table 1 except
-# forest is -0.4 (brief says it's hard to light) and lake is -1 (never burns)
+# chaparral, forest, canyon, lake. p_veg multiplies p_burn: forest is hard to
+# light, canyon always catches and lake never burns
 P_VEG = np.array([1, 0.2, 100, 0])
 
 HOUR = 60 // MINUTES_PER_STEP

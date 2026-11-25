@@ -15,3 +15,6 @@ MINUTES_PER_STEP = 5
 # wind, 0 speed = no wind
 WIND_SPEED = 10.0      # m/s
 WIND_FROM_DEG = 0      # direction it blows from, 0 = N, 90 = E
+
+# patchy vegetation density from a noise map, False = same density everywhere
+DENSITY = False

@@ -70,7 +70,8 @@ def main():
     # Open the config object
     config = setup(sys.argv[1:])
     noise_map = density.generate_noise_map(config.grid_dims)
-    density.show_noise_map(noise_map)
+    if density.DENSITY:
+        density.show_noise_map(noise_map)
     cells = burn.make_cells(noise_map)
     # bearing of each neighbour, capyle order is NW N NE W E SW S SE
     cells['directions'] = [

@@ -4,13 +4,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import noise
 
-NOISE_ENABLED = True
+from .settings import DENSITY
 
 def apply_noise(x, y):
     return noise.pnoise2(x/10, y/10)
 
 def generate_noise_map(grid_dims):
-    if NOISE_ENABLED:
+    if not DENSITY:
         return np.ones(grid_dims)
     X, Y = np.meshgrid(np.arange(grid_dims[0]), np.arange(grid_dims[1]), indexing='ij')
     raw =  np.vectorize(apply_noise)(X, Y)
