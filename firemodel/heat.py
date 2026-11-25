@@ -6,9 +6,9 @@ from . import states
 from .settings import MINUTES_PER_STEP
 
 
-# catching 1h, flaming 4h, smouldering, embers after half the fuel
-CATCH_STEPS = 60 // MINUTES_PER_STEP
-FLAME_STEPS = 4 * 60 // MINUTES_PER_STEP
+# catching 1 step, flaming 1h, smouldering, embers after half the fuel
+CATCH_STEPS = 1
+FLAME_STEPS = 60 // MINUTES_PER_STEP
 EMBERS_AT = 0.5
 
 # heat multiplies p_burn. our own guesses for now

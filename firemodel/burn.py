@@ -6,7 +6,7 @@ from . import terrain_map, states
 from .settings import MINUTES_PER_STEP
 
 
-P0 = 0.12
+P0 = 0.04
 
 # chaparral, forest, canyon, lake. from Freire & DaCamara table 1 except
 # forest is -0.4 (brief says it's hard to light) and lake is -1 (never burns)

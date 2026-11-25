@@ -1,14 +1,13 @@
-"""Wind multiplier for each neighbour direction. TODO - on the wind branch"""
+"""Wind multiplier for each neighbour direction, from Alexandridis et al. (2008)"""
 
 import numpy as np
 import math
 
-WIND_SPEED = 20.0      # m/s
-WIND_FROM_DEG = -90     # direction it blows from, 0 = N, 90 = E
+from .settings import WIND_SPEED, WIND_FROM_DEG
 
-# taken from paper
-CONSTANT_1=0.05
-CONSTANT_2=0.13
+# paper (Alexandridis 2008) uses 0.045 and 0.131, too weak on our grid
+CONSTANT_1=0.15
+CONSTANT_2=0.2
 
 
 def spread_chance(propagation_direction):

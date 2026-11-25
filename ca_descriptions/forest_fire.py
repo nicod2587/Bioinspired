@@ -15,15 +15,14 @@ sys.path.append(main_dir_loc + 'capyle/guicomponents')
 from capyle.ca import Grid2D
 import capyle.utils as utils
 
-from firemodel import terrain_map, states, burn, heat, spread, wind
+from firemodel import terrain_map, states, burn, heat, spread, wind, settings
 
 
 GRID_DIMS = terrain_map.GRID_DIMS
 
-IGNITION = terrain_map.POWER_PLANT   # or INCINERATOR
-
-# 20 min steps, so 600 hours. default for the gui box
-NUM_GENERATIONS = 1800
+IGNITION = {'power plant': terrain_map.POWER_PLANT,
+            'incinerator': terrain_map.INCINERATOR}[settings.IGNITION]
+NUM_GENERATIONS = settings.NUM_GENERATIONS
 
 
 def transition_func(grid, neighbourstates, neighbourcounts, cells):
