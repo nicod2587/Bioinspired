@@ -1,0 +1,37 @@
+shape tests, 25 nov. all at 8 m/s wind, 5 min steps, P0 0.04
+ca_descriptions/shape_test.py is the test map in capyle (forest / chaparral / random mix, 3 fires)
+
+forest p_veg (forest_pveg_real_map.png)
+- 0.2 forest acts almost like a wall, fire goes round it
+- 0.35 a wind driven fire goes through it nearly as fast as chaparral
+- went with 0.25. plain forest head speed 0.33 km/h (0.2 was 0.15, 0.35 was 0.76)
+- time to town with north wind barely changes, neither route goes through forest:
+    p_veg   power plant     incinerator
+    0.2     39.0 +- 2.7 h   28.1 +- 1.4 h
+    0.25    39.2 +- 3.2 h   28.1 +- 1.4 h
+    0.35    37.2 +- 1.9 h   28.1 +- 1.4 h
+- canyon now 25 (= 1 / P0) instead of 100, same effect
+
+wind constants C1 / C2 - NOT changed, conrad to decide (wind_c2_sweep.png, wind_constants_real_map.png)
+- with C1 0.15, C2 0.2 the fire in chaparral is wider than long (length/width 0.9).
+  real fires at 8 m/s should be about 2-3x longer than wide (Alexander 1985)
+- the diagonal neighbours still get x2.08 so the fire spreads sideways as fast as forward
+- raising C2 makes it a proper ellipse, raising C1 keeps the head speed:
+    C1     C2     head km/h   length/width   forest 0.2 head
+    0.15   0.20   2.06        0.9            0.15
+    0.15   0.35   1.74        1.2            0.09
+    0.18   0.50   1.78        1.4            0.08
+    0.20   0.70   1.85        1.6            0.10
+    0.22   0.90   1.87        2.3            0.10
+- BUT on the real map with 0.22 / 0.9 a north wind fire never reaches the town (0/8 runs
+  in 120 h, both ignitions). sideways spread is x0.004 so it just runs down the edge of
+  the map past the town. this would change the Q1 answer completely
+- in between values (north wind, 8 runs each, forest 0.25):
+    C1     C2     power plant          incinerator
+    0.15   0.20   39.2 +- 3.2 h        28.1 +- 1.4 h
+    0.15   0.35   91.0 +- 9.6 h (3/8)  36.4 +- 1.8 h
+    0.18   0.50   never                57.0 +- 18.0 h
+    0.22   0.90   never                never
+- options: keep 0.15 / 0.2 and say the shape is a limitation, or raise C2 and explain
+  that a straight north wind mostly misses the town (very sensitive to C2)
+- if it changes, the Q1/Q2 runs and the wind grid picture on slide 15 need redoing

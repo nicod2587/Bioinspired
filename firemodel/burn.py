@@ -9,8 +9,8 @@ from .settings import MINUTES_PER_STEP
 P0 = 0.04
 
 # chaparral, forest, canyon, lake. p_veg multiplies p_burn: forest is hard to
-# light, canyon always catches and lake never burns
-P_VEG = np.array([1, 0.2, 100, 0])
+# light, canyon always catches (25 = 1 / P0) and lake never burns
+P_VEG = np.array([1, 0.25, 25, 0])
 
 HOUR = 60 // MINUTES_PER_STEP
 DAY = 24 * HOUR
