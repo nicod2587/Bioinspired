@@ -5,6 +5,7 @@ channels:
 
 dependencies:
   - python=3.7.8
+  - noise=1.2.2
   - pip
   - pip:
     - numpy==1.19.2

@@ -15,8 +15,8 @@ EMBERS_AT = 0.5
 HEAT_OF_STATE = np.zeros(states.NUM_STATES)
 HEAT_OF_STATE[states.CATCHING] = 0.3
 HEAT_OF_STATE[states.FLAMING] = 1
-HEAT_OF_STATE[states.SMOULDERING] = 0.1
-HEAT_OF_STATE[states.EMBERS] = 0.05
+HEAT_OF_STATE[states.SMOULDERING] = 0.05
+HEAT_OF_STATE[states.EMBERS] = 0.01
 
 
 def heat_of(state_grid):

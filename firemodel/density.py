@@ -1,7 +1,27 @@
 """A multipler to the lighting probability based on a perlin noise distributed density map"""
 
 import numpy as np
-import math
+import matplotlib.pyplot as plt
+import noise
 
-def generate_noise_map():
-    pass
+NOISE_ENABLED = True
+
+def apply_noise(x, y):
+    return noise.pnoise2(x/10, y/10)
+
+def generate_noise_map(grid_dims):
+    if NOISE_ENABLED:
+        return np.ones(grid_dims)
+    X, Y = np.meshgrid(np.arange(grid_dims[0]), np.arange(grid_dims[1]), indexing='ij')
+    raw =  np.vectorize(apply_noise)(X, Y)
+    raw = raw / np.abs(raw).max()
+    return 1 + 0.5 * raw
+
+def show_noise_map(noise_map):
+    plt.figure()
+    plt.imshow(noise_map, cmap='gray', interpolation='none')
+    plt.colorbar()
+    plt.show(block=False)
+    plt.pause(0.001)
+    plt.savefig('noise_map.png')
+    plt.close()

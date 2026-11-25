@@ -3,8 +3,8 @@
 import numpy as np
 import math
 
-WIND_SPEED = 20.0      # m/s
-WIND_FROM_DEG = -90     # direction it blows from, 0 = N, 90 = E
+WIND_SPEED = 8.0      # m/s
+WIND_FROM_DEG = 0     # direction it blows from, 0 = N, 90 = E
 
 # taken from paper
 CONSTANT_1=0.05

@@ -15,7 +15,7 @@ sys.path.append(main_dir_loc + 'capyle/guicomponents')
 from capyle.ca import Grid2D
 import capyle.utils as utils
 
-from firemodel import terrain_map, states, burn, heat, spread, wind
+from firemodel import terrain_map, states, burn, heat, spread, wind, density
 
 
 GRID_DIMS = terrain_map.GRID_DIMS
@@ -70,8 +70,9 @@ def setup(args):
 def main():
     # Open the config object
     config = setup(sys.argv[1:])
-
-    cells = burn.make_cells()
+    noise_map = density.generate_noise_map(config.grid_dims)
+    density.show_noise_map(noise_map)
+    cells = burn.make_cells(noise_map)
     # bearing of each neighbour, capyle order is NW N NE W E SW S SE
     cells['directions'] = [
         315, 0, 45, 270, 90, 225, 180, 135
