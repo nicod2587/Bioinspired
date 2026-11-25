@@ -2,6 +2,8 @@
 
 import numpy as np
 
+from .settings import CELL_KM
+
 
 # terrain types, same order as the tables in burn.py
 CHAPARRAL = 0
@@ -9,9 +11,7 @@ FOREST = 1
 CANYON = 2
 LAKE = 3
 
-# 200m cells -> 250x250. tried 50m and 100m but capyle was too slow
 MAP_KM = 50
-CELL_KM = 0.5
 GRID_SIZE = int(round(MAP_KM / CELL_KM))
 GRID_DIMS = (GRID_SIZE, GRID_SIZE)
 
