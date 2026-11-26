@@ -19,8 +19,10 @@ DAY = 24 * HOUR
 BURN_TIME = np.array([3 * DAY, 10 * DAY, 10 * HOUR, 0])
 
 
-def make_cells(density_noise_map):
-    terrain = terrain_map.make_map()
+def make_cells(density_noise_map, terrain=None):
+    # terrain can be passed in when the map has been changed (extra forest)
+    if terrain is None:
+        terrain = terrain_map.make_map()
     p_burn = np.clip(P0 * (P_VEG[terrain]) * density_noise_map, 0, 1)
     # based on values from the paper
     fuel = BURN_TIME[terrain].copy() * density_noise_map

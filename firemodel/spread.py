@@ -12,5 +12,7 @@ def catches_fire(grid, neighbourstates, p_burn, directions_angles):
         neighbour_heat = heat.heat_of(neighbourstates[direction])
         p = np.clip(p_burn * neighbour_heat * wind.spread_chance(directions_angles[direction]), 0, 1)
         chance_not_lit *= 1 - p
+    # chance_not_lit is the chance that none of the 8 neighbours light it.
+    # one random number per cell: if it's above that, at least one did
     lit = np.random.random(grid.shape) > chance_not_lit
     return states.is_unburnt(grid) & lit
