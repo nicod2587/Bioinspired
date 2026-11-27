@@ -49,7 +49,8 @@ class _StateColorsUI(tk.Frame, _ConfigUIComponent):
             label.pack(side=tk.LEFT)
             self.canvas[i].pack(side=tk.RIGHT)
             frame.pack(side=tk.LEFT)
-            if i % 3 == 2 and not (i == len(self.states) - 1):
+            # 8 a row so the run button fits on a laptop screen
+            if i % 8 == 7 and not (i == len(self.states) - 1):
                 outerframe.pack()
                 outerframe = tk.Frame(self)
         outerframe.pack()

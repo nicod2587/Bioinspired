@@ -115,8 +115,6 @@ def main():
     # Open the config object
     config = setup(sys.argv[1:])
     noise_map = density.generate_noise_map(config.grid_dims)
-    if density.DENSITY:
-        density.show_noise_map(noise_map)
     # the map with any extra forest from setup
     # main() runs separately from setup(), so the extra forest is read back
     # from the initial grid setup() made

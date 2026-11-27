@@ -144,7 +144,8 @@ class Display(object):
                                  text="Apply configuration & run CA",
                                  command=self.run_ca)
         self.btn_run.pack(side=tk.BOTTOM, pady=10)
-        self.lbotframe.pack(fill=tk.BOTH, expand=True)
+        # packed before the config controls so it stays on screen when they're too tall
+        self.lbotframe.pack(side=tk.BOTTOM, fill=tk.BOTH, before=self.config_ui)
 
     def load_ca(self, filepath):
         """Load a CA description file

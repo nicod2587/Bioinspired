@@ -18,13 +18,9 @@ WIND_FROM_DEG = 0      # direction it blows from, 0 = N, 90 = E
 
 # patchy vegetation density from a noise map, False = same density everywhere
 DENSITY = True
-DENSITY_IMG_SAVE = False
-
-
 
 # shown in the gui's settings panel, NUM_GENERATIONS is the gui's generations box
 EDITABLE = ['IGNITION', 'WIND_SPEED', 'WIND_FROM_DEG', 'DENSITY',
-            'DENSITY_IMG_SAVE', 'CELL_KM', 'MINUTES_PER_STEP',
             'STOP_AT_VILLAGE', 'SHOW_CLOCK', 'WATER_DROP', 'WATER_START_HOUR',
             'WATER_CELLS_PER_HOUR', 'FOREST_EXTENSION']
 CHOICES = {'IGNITION': ['power plant', 'incinerator']}
