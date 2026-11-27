@@ -49,6 +49,15 @@ class _EditInitialGridWindow(tk.Toplevel):
         self.add_graph(graphframe, mode)
         graphframe.pack()
 
+        # start from the current initial grid (the map) instead of a blank one
+        current = self.ca_config.initial_grid
+        if custom and current is not None and np.shape(current) == self.grid.shape:
+            self.grid = np.array(current, dtype=float)
+            self.graph.setdata(self.grid)
+            self.graph.refresh()
+        # order the cells were painted in, kept between edits
+        self.paint_order = list(getattr(self.ca_config, 'paint_order', []))
+
         # hover coords label
         self.coords = tk.Label(rframe, text="[0, 0]")
         self.coords.pack()
@@ -90,6 +99,7 @@ class _EditInitialGridWindow(tk.Toplevel):
         else:
             self.grid = grid
         self.ca_config.set_initial_grid(grid)
+        self.ca_config.paint_order = list(getattr(self, 'paint_order', []))
         self.graph.setdata(grid)
         self.graph.refresh()
         if close:
@@ -112,6 +122,10 @@ class _EditInitialGridWindow(tk.Toplevel):
         else:
             row, col = 0, 0
         self.coords.config(text="[{}, {}]".format(row, col))
+        # paint while the left mouse button is held down
+        painting = getattr(self.configframe, 'selected_state_index', None) is not None
+        if event.inaxes is not None and event.button == 1 and painting:
+            self.onaxesclick(event)
 
     def get_graph_indices(self, event):
         """Translate mouse position on graph to indicies in grid"""
@@ -128,6 +142,8 @@ class _EditInitialGridWindow(tk.Toplevel):
             state = self.ca_config.states[
                 self.configframe.selected_state_index.get()]
 
+            if self.grid[row, col] != state:
+                self.paint_order.append((row, col))
             self.grid[row, col] = state
             self.graphset()
             self.graph.refresh()
