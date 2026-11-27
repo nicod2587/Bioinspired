@@ -14,20 +14,11 @@ from firemodel import states, settings
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TIMELINE = os.path.join(HERE, 'temp', 'timeline.pkl')
-CONFIG = os.path.join(HERE, 'temp', 'config.pkl')
-
-
-def run_settings():
-    # settings the gui run used, falls back to settings.py
-    for sub in ['capyle', 'capyle/ca', 'capyle/guicomponents']:
-        sys.path.append(os.path.join(HERE, sub))
-    import capyle.ca  # noqa: F401, has to come before unpickling the config
-    with open(CONFIG, 'rb') as f:
-        return {**settings.current(), **getattr(pickle.load(f), 'settings', {})}
 
 
 def main():
-    minutes = run_settings()['MINUTES_PER_STEP']
+    # minutes per step isn't in the gui panel, so it's always the one in settings.py
+    minutes = settings.MINUTES_PER_STEP
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, 'results', 'fire.gif')
     every = int(sys.argv[2]) if len(sys.argv) > 2 else 60 // minutes
     scale = int(sys.argv[3]) if len(sys.argv) > 3 else 5

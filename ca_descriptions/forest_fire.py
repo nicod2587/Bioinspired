@@ -151,13 +151,6 @@ def main():
     grid = StopAtTown(config, (transition_func, cells))
     # Run the CA, save grid state every generation to timeline
     timeline = grid.run()
-    if settings.SHOW_CLOCK:
-        # only drawn on the saved frames, the run itself never sees it
-        steps_per_hour = 60 // settings.MINUTES_PER_STEP
-        for i, frame in enumerate(timeline):
-            if frame is not None:
-                label.write(frame, ['%dh' % (i // steps_per_hour)], states.TEXT,
-                            terrain_map.DRAW_TOWN, corner='bottom', tiny=True)
     if grid.reached_at is not None:
         # cut off the unused steps and write the time on the last frame
         timeline = timeline[:grid.reached_at + 1]
