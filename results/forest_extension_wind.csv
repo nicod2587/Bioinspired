@@ -1,0 +1,65 @@
+layout,ignition,wind_from,median_hours_to_town
+none,power plant,N,38.2
+none,power plant,NE,129.0
+none,power plant,E,168.0
+none,power plant,SE,168.0
+none,power plant,S,168.0
+none,power plant,SW,168.0
+none,power plant,W,127.4
+none,power plant,NW,37.8
+none,incinerator,N,28.0
+none,incinerator,NE,28.1
+none,incinerator,E,50.1
+none,incinerator,SE,168.0
+none,incinerator,S,168.0
+none,incinerator,SW,168.0
+none,incinerator,W,168.0
+none,incinerator,NW,56.0
+west gap,power plant,N,44.2
+west gap,power plant,NE,153.0
+west gap,power plant,E,168.0
+west gap,power plant,SE,168.0
+west gap,power plant,S,168.0
+west gap,power plant,SW,168.0
+west gap,power plant,W,127.4
+west gap,power plant,NW,40.1
+west gap,incinerator,N,28.0
+west gap,incinerator,NE,28.1
+west gap,incinerator,E,50.1
+west gap,incinerator,SE,168.0
+west gap,incinerator,S,168.0
+west gap,incinerator,SW,168.0
+west gap,incinerator,W,168.0
+west gap,incinerator,NW,56.0
+corridor,power plant,N,38.2
+corridor,power plant,NE,129.0
+corridor,power plant,E,168.0
+corridor,power plant,SE,168.0
+corridor,power plant,S,168.0
+corridor,power plant,SW,168.0
+corridor,power plant,W,154.3
+corridor,power plant,NW,38.3
+corridor,incinerator,N,29.9
+corridor,incinerator,NE,30.7
+corridor,incinerator,E,67.4
+corridor,incinerator,SE,168.0
+corridor,incinerator,S,168.0
+corridor,incinerator,SW,168.0
+corridor,incinerator,W,168.0
+corridor,incinerator,NW,54.5
+split,power plant,N,39.8
+split,power plant,NE,150.6
+split,power plant,E,168.0
+split,power plant,SE,168.0
+split,power plant,S,168.0
+split,power plant,SW,168.0
+split,power plant,W,153.3
+split,power plant,NW,39.0
+split,incinerator,N,28.3
+split,incinerator,NE,28.8
+split,incinerator,E,58.5
+split,incinerator,SE,168.0
+split,incinerator,S,168.0
+split,incinerator,SW,168.0
+split,incinerator,W,168.0
+split,incinerator,NW,53.3

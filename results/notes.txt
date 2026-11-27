@@ -1,0 +1,77 @@
+results, 27 nov. everything here is from the current code on main, so use these numbers for the slides
+all runs: 500 m cells (100x100), 5 min steps, wind 8 m/s, density on, P0 0.04, wind C1 0.15 / C2 0.2
+"hours to town" = first time any town cell catches fire. 168 h (a week) = gave up, never got there
+each csv has one row per run so you can make your own charts / tables for the appendix
+
+Q1 - power plant vs incinerator, north wind      (py experiments.py)
+  wind_sweep.csv / .png   10 runs per direction, both ignitions
+  north wind: incinerator 28.2 +- 1.3 h, power plant 38.8 +- 3.0 h (mean)
+  the 30 run medians on nico's slide (27.7 / 37.3 h) are the "none" rows in forest_extension.csv
+  so the incinerator gets there about 10 h (a quarter) sooner
+
+Q2 - wind direction sweep, incinerator              (same files as Q1)
+  mean hours (runs that got there out of 10)
+    wind from   incinerator        power plant
+    N           28.2  (10/10)      38.8  (10/10)
+    NE          28.1  (10/10)      123.2 (9/10)
+    E           51.0  (10/10)      never
+    SE          161.8 (1/10)       never
+    S, SW       never              never
+    W           never              129.4 (10/10)
+    NW          53.4  (10/10)      38.0  (10/10)
+  worst for the incinerator is N or NE. any wind with a south part blows it away from the town
+
+wind speed                                         (py experiments.py 10 <speed>)
+  wind_sweep_0ms / _5ms / _15ms .csv / .png, same as above at other speeds (8 m/s is wind_sweep.csv)
+  north wind, mean hours:
+    speed      incinerator        power plant
+    0 m/s      47.6  (9/10)       66.3  (10/10)
+    5 m/s      34.4               47.1
+    8 m/s      28.2               38.8
+    15 m/s     18.7               25.3
+  at 15 m/s the power plant fire only reaches the town with N or NW wind
+
+Q3 - water drop, 50 cells = 12.5 km2               (py water_drop.py)
+  water_tactics.csv / .png   incinerator fire, north wind, 30 runs each
+  planes drop 2 cells an hour from hour 1. wet 1 h then damp 23 h, a fire next to it dries it faster
+    tactic                         median h   change
+    no drop                        27.7
+    early attack (near incinerator) 28.0      +0.3
+    ring round the town            28.7       +1.0
+    follow the head of the fire    30.7       +3.0  (2/30 runs never reached the town, very spread out)
+    line from forest to lake       32.1       +4.4
+  "ring dropped last" (36.8 h) and "canyon plugs then ring" (37.8 h) on nico's slide were
+  separate runs, they're not in the csv
+  water_drop_scan_instant.png / water_scan_instant.npy - every position of a line and a square,
+  OLD: all water dropped at once at the start, before the planes/drying were added. only use as background
+
+Q4 - extra dense forest, 100 cells = 25 km2        (py forest_extension.py, py forest_extension.py wind)
+  forest_extension.csv / .png   north wind, 30 runs each, both ignitions
+    layout             power plant      incinerator
+    none               37.3             27.7
+    west gap           44.2 (+6.9)      27.7 (+0.0)
+    split              40.6 (+3.3)      28.5 (+0.8)
+    corridor           37.5 (+0.2)      29.8 (+2.1)
+    town shield        37.3 (+0.0)      28.0 (+0.3)
+    north-east block   37.3 (+0.0)      28.0 (+0.3)
+    top strip          37.3 (+0.0)      27.7 (+0.0)
+  forest_extension_wind.csv - none / west gap / corridor / split for all 8 wind directions, 10 runs, medians
+  forest only slows the fire down, it doesn't stop it. the split and ring rows on nico's slide
+  (42.0 / 44.0 h) were painted in the gui, slightly different shape to the split here
+
+old/
+  wind sweeps from 18 nov (10 m/s, 0, 5, 15 m/s) and water tactics from 26 nov (water from hour 2).
+  older settings (no density, forest p_veg before 0.25) so DON'T put these on main slides.
+  the up to date 0 / 5 / 15 m/s ones are in results/ (see wind speed above)
+
+gifs/        wind sweep for both ignitions (8 directions at once), water drop runs
+slide_images/ formula pictures, rule grids and close ups used on our slides
+nico_results_slides.pptx  nico's results slides (Q1-Q4), copy anything into the deck
+
+appendix ideas, free to take one:
+- wind speed 0 / 5 / 8 / 15 m/s, all 8 directions (csvs already there)
+- density on vs off (barely changes the time to town since the noise map mean is 1)
+- wind constants / fire shape, see shape_tests/notes.txt
+- forest p_veg 0.2 / 0.25 / 0.35, also in shape_tests/notes.txt
+- full Q4 wind direction table from forest_extension_wind.csv
+- spread of the runs (box plots from the csvs) instead of just medians

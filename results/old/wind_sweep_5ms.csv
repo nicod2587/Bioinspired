@@ -1,0 +1,161 @@
+ignition,wind_from,wind_speed,run,hours_to_town
+power plant,N,5.0,0,38.58
+power plant,N,5.0,1,42.92
+power plant,N,5.0,2,44.75
+power plant,N,5.0,3,43.08
+power plant,N,5.0,4,43.17
+power plant,N,5.0,5,39.08
+power plant,N,5.0,6,51.83
+power plant,N,5.0,7,47.75
+power plant,N,5.0,8,40.58
+power plant,N,5.0,9,46.0
+power plant,NE,5.0,0,65.17
+power plant,NE,5.0,1,69.67
+power plant,NE,5.0,2,70.25
+power plant,NE,5.0,3,71.08
+power plant,NE,5.0,4,53.67
+power plant,NE,5.0,5,57.25
+power plant,NE,5.0,6,64.83
+power plant,NE,5.0,7,75.67
+power plant,NE,5.0,8,54.67
+power plant,NE,5.0,9,85.5
+power plant,E,5.0,0,134.0
+power plant,E,5.0,1,152.42
+power plant,E,5.0,2,154.83
+power plant,E,5.0,3,146.67
+power plant,E,5.0,4,156.5
+power plant,E,5.0,5,105.58
+power plant,E,5.0,6,122.5
+power plant,E,5.0,7,136.92
+power plant,E,5.0,8,115.42
+power plant,E,5.0,9,132.42
+power plant,SE,5.0,0,
+power plant,SE,5.0,1,
+power plant,SE,5.0,2,
+power plant,SE,5.0,3,
+power plant,SE,5.0,4,
+power plant,SE,5.0,5,
+power plant,SE,5.0,6,
+power plant,SE,5.0,7,
+power plant,SE,5.0,8,
+power plant,SE,5.0,9,
+power plant,S,5.0,0,140.42
+power plant,S,5.0,1,150.92
+power plant,S,5.0,2,
+power plant,S,5.0,3,154.67
+power plant,S,5.0,4,
+power plant,S,5.0,5,147.17
+power plant,S,5.0,6,
+power plant,S,5.0,7,
+power plant,S,5.0,8,148.08
+power plant,S,5.0,9,
+power plant,SW,5.0,0,130.5
+power plant,SW,5.0,1,139.08
+power plant,SW,5.0,2,105.75
+power plant,SW,5.0,3,122.17
+power plant,SW,5.0,4,104.17
+power plant,SW,5.0,5,124.58
+power plant,SW,5.0,6,129.5
+power plant,SW,5.0,7,116.0
+power plant,SW,5.0,8,135.75
+power plant,SW,5.0,9,120.42
+power plant,W,5.0,0,71.42
+power plant,W,5.0,1,70.67
+power plant,W,5.0,2,63.5
+power plant,W,5.0,3,73.17
+power plant,W,5.0,4,72.08
+power plant,W,5.0,5,78.58
+power plant,W,5.0,6,72.42
+power plant,W,5.0,7,63.42
+power plant,W,5.0,8,61.58
+power plant,W,5.0,9,88.42
+power plant,NW,5.0,0,35.58
+power plant,NW,5.0,1,47.67
+power plant,NW,5.0,2,46.25
+power plant,NW,5.0,3,39.33
+power plant,NW,5.0,4,40.42
+power plant,NW,5.0,5,41.92
+power plant,NW,5.0,6,49.08
+power plant,NW,5.0,7,48.25
+power plant,NW,5.0,8,40.25
+power plant,NW,5.0,9,44.0
+incinerator,N,5.0,0,33.92
+incinerator,N,5.0,1,32.17
+incinerator,N,5.0,2,33.5
+incinerator,N,5.0,3,34.42
+incinerator,N,5.0,4,35.0
+incinerator,N,5.0,5,31.67
+incinerator,N,5.0,6,33.58
+incinerator,N,5.0,7,36.17
+incinerator,N,5.0,8,34.42
+incinerator,N,5.0,9,30.58
+incinerator,NE,5.0,0,32.58
+incinerator,NE,5.0,1,32.17
+incinerator,NE,5.0,2,32.0
+incinerator,NE,5.0,3,33.67
+incinerator,NE,5.0,4,33.25
+incinerator,NE,5.0,5,33.17
+incinerator,NE,5.0,6,32.08
+incinerator,NE,5.0,7,38.75
+incinerator,NE,5.0,8,33.58
+incinerator,NE,5.0,9,30.67
+incinerator,E,5.0,0,45.33
+incinerator,E,5.0,1,42.5
+incinerator,E,5.0,2,43.58
+incinerator,E,5.0,3,44.08
+incinerator,E,5.0,4,46.5
+incinerator,E,5.0,5,42.0
+incinerator,E,5.0,6,43.5
+incinerator,E,5.0,7,46.58
+incinerator,E,5.0,8,46.58
+incinerator,E,5.0,9,47.25
+incinerator,SE,5.0,0,84.25
+incinerator,SE,5.0,1,74.0
+incinerator,SE,5.0,2,73.5
+incinerator,SE,5.0,3,71.67
+incinerator,SE,5.0,4,75.25
+incinerator,SE,5.0,5,103.5
+incinerator,SE,5.0,6,93.33
+incinerator,SE,5.0,7,93.42
+incinerator,SE,5.0,8,81.75
+incinerator,SE,5.0,9,81.25
+incinerator,S,5.0,0,
+incinerator,S,5.0,1,150.92
+incinerator,S,5.0,2,136.42
+incinerator,S,5.0,3,127.83
+incinerator,S,5.0,4,151.17
+incinerator,S,5.0,5,147.17
+incinerator,S,5.0,6,
+incinerator,S,5.0,7,125.42
+incinerator,S,5.0,8,139.33
+incinerator,S,5.0,9,
+incinerator,SW,5.0,0,
+incinerator,SW,5.0,1,159.33
+incinerator,SW,5.0,2,133.67
+incinerator,SW,5.0,3,135.08
+incinerator,SW,5.0,4,
+incinerator,SW,5.0,5,159.67
+incinerator,SW,5.0,6,
+incinerator,SW,5.0,7,154.08
+incinerator,SW,5.0,8,135.75
+incinerator,SW,5.0,9,
+incinerator,W,5.0,0,109.58
+incinerator,W,5.0,1,116.5
+incinerator,W,5.0,2,92.67
+incinerator,W,5.0,3,82.33
+incinerator,W,5.0,4,104.0
+incinerator,W,5.0,5,87.25
+incinerator,W,5.0,6,98.33
+incinerator,W,5.0,7,131.5
+incinerator,W,5.0,8,93.67
+incinerator,W,5.0,9,88.42
+incinerator,NW,5.0,0,53.08
+incinerator,NW,5.0,1,43.25
+incinerator,NW,5.0,2,48.92
+incinerator,NW,5.0,3,42.75
+incinerator,NW,5.0,4,47.75
+incinerator,NW,5.0,5,57.67
+incinerator,NW,5.0,6,51.17
+incinerator,NW,5.0,7,52.83
+incinerator,NW,5.0,8,47.75
+incinerator,NW,5.0,9,44.5

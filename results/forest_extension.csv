@@ -1,0 +1,421 @@
+layout,ignition,run,hours_to_town
+none,power plant,0,36.42
+none,power plant,1,37.17
+none,power plant,2,39.08
+none,power plant,3,38.17
+none,power plant,4,41.17
+none,power plant,5,36.58
+none,power plant,6,46.83
+none,power plant,7,38.17
+none,power plant,8,36.0
+none,power plant,9,38.75
+none,power plant,10,35.67
+none,power plant,11,32.5
+none,power plant,12,41.5
+none,power plant,13,35.42
+none,power plant,14,36.67
+none,power plant,15,37.58
+none,power plant,16,39.0
+none,power plant,17,33.25
+none,power plant,18,39.33
+none,power plant,19,35.92
+none,power plant,20,36.0
+none,power plant,21,33.67
+none,power plant,22,34.25
+none,power plant,23,42.58
+none,power plant,24,40.83
+none,power plant,25,32.5
+none,power plant,26,37.67
+none,power plant,27,34.67
+none,power plant,28,37.5
+none,power plant,29,38.83
+none,incinerator,0,31.5
+none,incinerator,1,28.0
+none,incinerator,2,27.25
+none,incinerator,3,26.67
+none,incinerator,4,28.5
+none,incinerator,5,27.92
+none,incinerator,6,28.0
+none,incinerator,7,27.08
+none,incinerator,8,29.33
+none,incinerator,9,27.33
+none,incinerator,10,26.42
+none,incinerator,11,29.42
+none,incinerator,12,26.33
+none,incinerator,13,28.0
+none,incinerator,14,27.58
+none,incinerator,15,29.17
+none,incinerator,16,28.33
+none,incinerator,17,27.17
+none,incinerator,18,27.08
+none,incinerator,19,27.25
+none,incinerator,20,28.08
+none,incinerator,21,25.42
+none,incinerator,22,25.83
+none,incinerator,23,28.67
+none,incinerator,24,28.17
+none,incinerator,25,27.5
+none,incinerator,26,27.42
+none,incinerator,27,27.83
+none,incinerator,28,28.67
+none,incinerator,29,27.58
+corridor,power plant,0,36.42
+corridor,power plant,1,37.17
+corridor,power plant,2,39.08
+corridor,power plant,3,38.17
+corridor,power plant,4,41.17
+corridor,power plant,5,36.58
+corridor,power plant,6,46.83
+corridor,power plant,7,38.17
+corridor,power plant,8,36.0
+corridor,power plant,9,38.75
+corridor,power plant,10,35.67
+corridor,power plant,11,32.5
+corridor,power plant,12,41.5
+corridor,power plant,13,35.42
+corridor,power plant,14,38.42
+corridor,power plant,15,37.58
+corridor,power plant,16,39.0
+corridor,power plant,17,33.25
+corridor,power plant,18,39.33
+corridor,power plant,19,35.92
+corridor,power plant,20,36.0
+corridor,power plant,21,33.67
+corridor,power plant,22,34.25
+corridor,power plant,23,42.58
+corridor,power plant,24,40.83
+corridor,power plant,25,32.5
+corridor,power plant,26,37.67
+corridor,power plant,27,34.67
+corridor,power plant,28,37.5
+corridor,power plant,29,38.83
+corridor,incinerator,0,33.25
+corridor,incinerator,1,29.67
+corridor,incinerator,2,30.08
+corridor,incinerator,3,26.67
+corridor,incinerator,4,29.5
+corridor,incinerator,5,33.92
+corridor,incinerator,6,28.0
+corridor,incinerator,7,30.08
+corridor,incinerator,8,32.58
+corridor,incinerator,9,29.75
+corridor,incinerator,10,30.42
+corridor,incinerator,11,31.58
+corridor,incinerator,12,27.75
+corridor,incinerator,13,29.92
+corridor,incinerator,14,31.0
+corridor,incinerator,15,32.0
+corridor,incinerator,16,29.58
+corridor,incinerator,17,28.83
+corridor,incinerator,18,28.08
+corridor,incinerator,19,30.83
+corridor,incinerator,20,31.33
+corridor,incinerator,21,27.67
+corridor,incinerator,22,25.83
+corridor,incinerator,23,29.42
+corridor,incinerator,24,30.58
+corridor,incinerator,25,30.75
+corridor,incinerator,26,29.75
+corridor,incinerator,27,28.08
+corridor,incinerator,28,35.0
+corridor,incinerator,29,27.58
+town shield,power plant,0,36.42
+town shield,power plant,1,37.17
+town shield,power plant,2,39.08
+town shield,power plant,3,38.17
+town shield,power plant,4,41.25
+town shield,power plant,5,36.58
+town shield,power plant,6,46.83
+town shield,power plant,7,38.17
+town shield,power plant,8,36.0
+town shield,power plant,9,38.75
+town shield,power plant,10,35.67
+town shield,power plant,11,32.5
+town shield,power plant,12,41.5
+town shield,power plant,13,35.42
+town shield,power plant,14,36.67
+town shield,power plant,15,37.58
+town shield,power plant,16,39.0
+town shield,power plant,17,33.25
+town shield,power plant,18,39.33
+town shield,power plant,19,35.92
+town shield,power plant,20,36.0
+town shield,power plant,21,33.67
+town shield,power plant,22,34.25
+town shield,power plant,23,42.58
+town shield,power plant,24,40.83
+town shield,power plant,25,32.5
+town shield,power plant,26,37.67
+town shield,power plant,27,34.67
+town shield,power plant,28,37.5
+town shield,power plant,29,38.83
+town shield,incinerator,0,31.5
+town shield,incinerator,1,28.0
+town shield,incinerator,2,28.0
+town shield,incinerator,3,26.67
+town shield,incinerator,4,29.5
+town shield,incinerator,5,27.92
+town shield,incinerator,6,28.0
+town shield,incinerator,7,27.08
+town shield,incinerator,8,29.42
+town shield,incinerator,9,27.33
+town shield,incinerator,10,27.33
+town shield,incinerator,11,29.42
+town shield,incinerator,12,26.33
+town shield,incinerator,13,28.0
+town shield,incinerator,14,27.58
+town shield,incinerator,15,29.17
+town shield,incinerator,16,28.33
+town shield,incinerator,17,27.17
+town shield,incinerator,18,27.08
+town shield,incinerator,19,27.25
+town shield,incinerator,20,28.08
+town shield,incinerator,21,25.42
+town shield,incinerator,22,25.83
+town shield,incinerator,23,29.33
+town shield,incinerator,24,28.17
+town shield,incinerator,25,27.5
+town shield,incinerator,26,28.75
+town shield,incinerator,27,28.08
+town shield,incinerator,28,28.92
+town shield,incinerator,29,27.58
+north-east block,power plant,0,36.42
+north-east block,power plant,1,37.17
+north-east block,power plant,2,39.08
+north-east block,power plant,3,38.17
+north-east block,power plant,4,41.17
+north-east block,power plant,5,36.58
+north-east block,power plant,6,46.83
+north-east block,power plant,7,38.17
+north-east block,power plant,8,36.0
+north-east block,power plant,9,38.75
+north-east block,power plant,10,35.67
+north-east block,power plant,11,32.5
+north-east block,power plant,12,41.5
+north-east block,power plant,13,35.42
+north-east block,power plant,14,36.67
+north-east block,power plant,15,37.58
+north-east block,power plant,16,39.0
+north-east block,power plant,17,33.25
+north-east block,power plant,18,39.33
+north-east block,power plant,19,35.92
+north-east block,power plant,20,36.0
+north-east block,power plant,21,33.67
+north-east block,power plant,22,34.25
+north-east block,power plant,23,42.58
+north-east block,power plant,24,40.83
+north-east block,power plant,25,32.5
+north-east block,power plant,26,37.67
+north-east block,power plant,27,34.67
+north-east block,power plant,28,37.5
+north-east block,power plant,29,38.83
+north-east block,incinerator,0,31.5
+north-east block,incinerator,1,28.0
+north-east block,incinerator,2,27.25
+north-east block,incinerator,3,26.67
+north-east block,incinerator,4,28.5
+north-east block,incinerator,5,27.92
+north-east block,incinerator,6,28.0
+north-east block,incinerator,7,27.08
+north-east block,incinerator,8,29.33
+north-east block,incinerator,9,27.33
+north-east block,incinerator,10,26.42
+north-east block,incinerator,11,29.42
+north-east block,incinerator,12,26.33
+north-east block,incinerator,13,28.0
+north-east block,incinerator,14,28.58
+north-east block,incinerator,15,29.17
+north-east block,incinerator,16,28.33
+north-east block,incinerator,17,27.17
+north-east block,incinerator,18,27.08
+north-east block,incinerator,19,27.25
+north-east block,incinerator,20,28.08
+north-east block,incinerator,21,25.42
+north-east block,incinerator,22,25.83
+north-east block,incinerator,23,28.67
+north-east block,incinerator,24,28.17
+north-east block,incinerator,25,27.5
+north-east block,incinerator,26,29.75
+north-east block,incinerator,27,27.83
+north-east block,incinerator,28,28.67
+north-east block,incinerator,29,27.58
+top strip,power plant,0,36.42
+top strip,power plant,1,37.17
+top strip,power plant,2,39.08
+top strip,power plant,3,38.17
+top strip,power plant,4,41.17
+top strip,power plant,5,36.58
+top strip,power plant,6,46.83
+top strip,power plant,7,38.17
+top strip,power plant,8,36.0
+top strip,power plant,9,38.75
+top strip,power plant,10,35.67
+top strip,power plant,11,32.5
+top strip,power plant,12,41.5
+top strip,power plant,13,35.42
+top strip,power plant,14,36.67
+top strip,power plant,15,37.58
+top strip,power plant,16,39.0
+top strip,power plant,17,33.25
+top strip,power plant,18,39.33
+top strip,power plant,19,35.92
+top strip,power plant,20,36.0
+top strip,power plant,21,33.67
+top strip,power plant,22,34.25
+top strip,power plant,23,42.58
+top strip,power plant,24,40.83
+top strip,power plant,25,32.5
+top strip,power plant,26,37.67
+top strip,power plant,27,34.67
+top strip,power plant,28,37.5
+top strip,power plant,29,38.83
+top strip,incinerator,0,31.5
+top strip,incinerator,1,28.0
+top strip,incinerator,2,27.25
+top strip,incinerator,3,26.67
+top strip,incinerator,4,28.5
+top strip,incinerator,5,27.92
+top strip,incinerator,6,28.0
+top strip,incinerator,7,27.08
+top strip,incinerator,8,29.33
+top strip,incinerator,9,27.33
+top strip,incinerator,10,26.42
+top strip,incinerator,11,29.42
+top strip,incinerator,12,26.33
+top strip,incinerator,13,28.0
+top strip,incinerator,14,27.58
+top strip,incinerator,15,29.17
+top strip,incinerator,16,28.33
+top strip,incinerator,17,27.17
+top strip,incinerator,18,27.08
+top strip,incinerator,19,27.25
+top strip,incinerator,20,28.08
+top strip,incinerator,21,25.42
+top strip,incinerator,22,25.83
+top strip,incinerator,23,28.67
+top strip,incinerator,24,28.17
+top strip,incinerator,25,27.5
+top strip,incinerator,26,27.42
+top strip,incinerator,27,27.83
+top strip,incinerator,28,28.67
+top strip,incinerator,29,27.58
+west gap,power plant,0,38.75
+west gap,power plant,1,47.33
+west gap,power plant,2,48.75
+west gap,power plant,3,48.08
+west gap,power plant,4,41.17
+west gap,power plant,5,44.08
+west gap,power plant,6,52.75
+west gap,power plant,7,39.75
+west gap,power plant,8,41.08
+west gap,power plant,9,44.25
+west gap,power plant,10,41.25
+west gap,power plant,11,46.25
+west gap,power plant,12,55.08
+west gap,power plant,13,49.58
+west gap,power plant,14,36.67
+west gap,power plant,15,46.92
+west gap,power plant,16,48.0
+west gap,power plant,17,37.33
+west gap,power plant,18,40.42
+west gap,power plant,19,42.75
+west gap,power plant,20,39.58
+west gap,power plant,21,44.25
+west gap,power plant,22,57.67
+west gap,power plant,23,41.67
+west gap,power plant,24,52.58
+west gap,power plant,25,44.08
+west gap,power plant,26,44.33
+west gap,power plant,27,39.92
+west gap,power plant,28,47.33
+west gap,power plant,29,56.75
+west gap,incinerator,0,31.5
+west gap,incinerator,1,28.0
+west gap,incinerator,2,27.25
+west gap,incinerator,3,26.67
+west gap,incinerator,4,28.5
+west gap,incinerator,5,27.92
+west gap,incinerator,6,28.0
+west gap,incinerator,7,27.08
+west gap,incinerator,8,29.33
+west gap,incinerator,9,27.33
+west gap,incinerator,10,26.42
+west gap,incinerator,11,29.42
+west gap,incinerator,12,26.33
+west gap,incinerator,13,28.0
+west gap,incinerator,14,27.58
+west gap,incinerator,15,29.17
+west gap,incinerator,16,28.33
+west gap,incinerator,17,27.17
+west gap,incinerator,18,27.08
+west gap,incinerator,19,27.25
+west gap,incinerator,20,28.08
+west gap,incinerator,21,25.42
+west gap,incinerator,22,25.83
+west gap,incinerator,23,28.67
+west gap,incinerator,24,28.17
+west gap,incinerator,25,27.5
+west gap,incinerator,26,27.42
+west gap,incinerator,27,27.83
+west gap,incinerator,28,28.67
+west gap,incinerator,29,27.58
+split,power plant,0,36.42
+split,power plant,1,37.17
+split,power plant,2,37.08
+split,power plant,3,41.75
+split,power plant,4,41.17
+split,power plant,5,40.25
+split,power plant,6,52.75
+split,power plant,7,38.17
+split,power plant,8,40.58
+split,power plant,9,39.42
+split,power plant,10,39.33
+split,power plant,11,42.33
+split,power plant,12,46.92
+split,power plant,13,42.33
+split,power plant,14,38.42
+split,power plant,15,42.58
+split,power plant,16,48.0
+split,power plant,17,40.58
+split,power plant,18,40.42
+split,power plant,19,37.5
+split,power plant,20,38.0
+split,power plant,21,36.5
+split,power plant,22,48.75
+split,power plant,23,42.58
+split,power plant,24,48.0
+split,power plant,25,36.33
+split,power plant,26,44.33
+split,power plant,27,34.67
+split,power plant,28,47.33
+split,power plant,29,47.83
+split,incinerator,0,33.25
+split,incinerator,1,28.5
+split,incinerator,2,27.25
+split,incinerator,3,26.67
+split,incinerator,4,28.5
+split,incinerator,5,33.17
+split,incinerator,6,28.0
+split,incinerator,7,27.08
+split,incinerator,8,31.67
+split,incinerator,9,28.17
+split,incinerator,10,28.0
+split,incinerator,11,31.58
+split,incinerator,12,27.75
+split,incinerator,13,29.92
+split,incinerator,14,27.58
+split,incinerator,15,29.17
+split,incinerator,16,29.58
+split,incinerator,17,28.83
+split,incinerator,18,27.08
+split,incinerator,19,27.25
+split,incinerator,20,28.58
+split,incinerator,21,27.67
+split,incinerator,22,25.83
+split,incinerator,23,28.67
+split,incinerator,24,29.58
+split,incinerator,25,29.5
+split,incinerator,26,28.75
+split,incinerator,27,28.08
+split,incinerator,28,28.67
+split,incinerator,29,27.58
