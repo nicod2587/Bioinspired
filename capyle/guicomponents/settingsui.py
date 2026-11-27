@@ -14,9 +14,11 @@ class _SettingsUI(tk.Frame):
         choices = getattr(ca_config, 'setting_choices', {})
         self.vars = {}
         self.types = {}
-        for row, (name, value) in enumerate(ca_config.settings.items(), 1):
+        for i, (name, value) in enumerate(ca_config.settings.items()):
+            # two columns so the panel fits on a laptop screen
+            row, col = i // 2 + 1, i % 2 * 2
             label = name.lower().replace('_', ' ')
-            tk.Label(self, text=label).grid(row=row, column=0, sticky=tk.W)
+            tk.Label(self, text=label).grid(row=row, column=col, sticky=tk.W)
             if isinstance(value, bool):
                 var = tk.BooleanVar(value=value)
                 widget = tk.Checkbutton(self, variable=var)
@@ -25,8 +27,8 @@ class _SettingsUI(tk.Frame):
                 widget = tk.OptionMenu(self, var, *choices[name])
             else:
                 var = tk.StringVar(value=str(value))
-                widget = tk.Entry(self, textvariable=var, width=12)
-            widget.grid(row=row, column=1, sticky=tk.W)
+                widget = tk.Entry(self, textvariable=var, width=8)
+            widget.grid(row=row, column=col + 1, sticky=tk.W)
             self.vars[name] = var
             self.types[name] = type(value)
         self.defaults = dict(ca_config.settings)

@@ -17,15 +17,11 @@ import numpy as np
 from capyle.ca import Grid2D
 import capyle.utils as utils
 
-<<<<<<< HEAD
 from firemodel import settings
 # apply the gui's settings panel before the rest of the model reads settings
 if __name__ == '__main__' and len(sys.argv) > 1:
     settings.override(getattr(utils.load(sys.argv[1]), 'settings', {}))
-from firemodel import terrain_map, states, burn, heat, spread, wind, density
-=======
-from firemodel import terrain_map, states, burn, heat, spread, wind, density, settings, label, water, forest
->>>>>>> 66f540679bef40ef47f5fd9992607d315a010a41
+from firemodel import terrain_map, states, burn, heat, spread, wind, density, label, water, forest
 
 
 GRID_DIMS = terrain_map.GRID_DIMS
